@@ -28,11 +28,14 @@ import {GETMethod} from '../api/greet/route'
     if(loading){
         return <div>Loading...</div>
     }
+    if(!data && data.length === 0){
+      return <div>No data available!</div>
+    }
 
     return <main>
        {data && data.length > 0 && (
         data.map((value) => (
-          <h3 key={value.id}>Hi, I am {value.title}</h3>
+          <h3 key={value.id}>{value.title}</h3>
         ))
       )}
     </main>
